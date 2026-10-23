@@ -1,12 +1,10 @@
 <?php
-// Mostra os erros no ecrã para facilitar a resolução
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 require_once __DIR__ . '/../config/Database.php';
 require_once __DIR__ . '/../src/Repository/LivroRepository.php';
 
-// 1. LÊ O FICHEIRO .ENV E GUARDA AS VARIÁVEIS NA MEMÓRIA
 $envPath = __DIR__ . '/../.env';
 if (file_exists($envPath)) {
     $variaveis = parse_ini_file($envPath);
@@ -16,7 +14,7 @@ if (file_exists($envPath)) {
 }
 
 try {
-    // 2. Inicia a ligação passando o driver 'mysql', como o seu colega fez
+    // 2. Inicia a ligação passando o driver 'mysql'
     $pdo = Database::conectar('mysql');
     
     // 3. Passa a ligação para o repositório
